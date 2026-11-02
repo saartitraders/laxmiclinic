@@ -385,3 +385,89 @@ dialog.lightbox .close { position: absolute; top: 8px; right: 8px; background: #
 .yt-play { width: 72px; height: 72px; border-radius: 50%; background: #e62117; display: grid; place-items: center; box-shadow: 0 10px 30px -8px rgba(0,0,0,.5); transition: transform .15s; }
 .yt-play .icon { width: 40px; height: 40px; color: #fff; stroke-width: 1.6; }
 .yt-fallback:hover .yt-play { transform: scale(1.08); }
+
+/* ---------- Hero v2: purple panel, cut-out doctor, floating cards ---------- */
+.hero.hero-v2 { background: linear-gradient(180deg, #fff 0%, var(--lilac) 100%); }
+.hero-v2 .wrap { display: block; padding-block: 28px 8px; }
+.hero-panel {
+  position: relative; display: grid; grid-template-columns: 1.08fr 1fr; align-items: end; gap: 24px;
+  background: radial-gradient(120% 90% at 85% 15%, #8a2fb3 0%, var(--plum-2) 38%, var(--plum) 100%);
+  border-radius: 32px; padding: 56px 0 0 56px; overflow: hidden; color: #fff; isolation: isolate;
+}
+.hero-panel::before { /* soft magenta glow, bottom-left */
+  content: ""; position: absolute; left: -120px; bottom: -160px; width: 420px; aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(216,27,116,.45), transparent 65%); z-index: -1;
+}
+.hero-text { padding-bottom: 120px; }
+.hero-v2 .eyebrow { color: #ffc2de; }
+.hero-v2 h1 { color: #fff; font-size: clamp(34px, 4.6vw, 54px); font-weight: 600; letter-spacing: -.015em; margin-top: 14px; line-height: 1.12; }
+.hero-v2 h1 em { font-style: normal; display: block; font-weight: 700; color: #ffd1e6; }
+.hero-v2 .lead { color: rgba(255,255,255,.82); font-size: 17px; margin-top: 16px; max-width: 44ch; }
+.hero-v2 .hero-cta { margin-top: 28px; }
+.btn-light { background: #fff; color: var(--plum); box-shadow: 0 10px 24px -12px rgba(0,0,0,.45); }
+.btn-light:hover { background: var(--pink-soft); color: var(--plum); }
+.btn-ghost { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.6); }
+.btn-ghost:hover { background: rgba(255,255,255,.12); color: #fff; }
+.hero-stats { display: flex; flex-wrap: wrap; gap: 14px 40px; margin: 36px 0 0; }
+.hero-stats div { display: grid; gap: 2px; }
+.hero-stats dt { font: 600 30px/1.1 var(--f-display); color: #fff; }
+.hero-stats dd { margin: 0; font-size: 14px; color: rgba(255,255,255,.75); }
+
+.hero-doc { position: relative; align-self: end; display: grid; justify-items: center; min-height: 100%; }
+.hero-doc .ring {
+  position: absolute; left: 50%; bottom: 8%; width: min(92%, 470px); aspect-ratio: 1; transform: translateX(-50%);
+  border-radius: 50%; background: radial-gradient(circle at 50% 45%, #5a1b78 0%, #3c0f52 70%); z-index: 0;
+}
+.hero-doc .ring::after { /* open arc around the circle, like a progress ring */
+  content: ""; position: absolute; inset: -18px; border-radius: 50%;
+  border: 10px solid rgba(255,194,222,.55); border-left-color: transparent; border-bottom-color: transparent;
+  transform: rotate(-20deg);
+}
+.hero-doc img { position: relative; z-index: 1; width: min(100%, 560px); height: auto; display: block; align-self: end; margin-top: auto; filter: drop-shadow(0 20px 30px rgba(30,5,45,.35)); }
+.hero-v2 .name-badge { z-index: 2; right: 28px; bottom: 120px; background: rgba(255,255,255,.96); color: var(--plum); }
+.hero-v2 .name-badge span { color: var(--muted); opacity: 1; }
+.hero-v2 .name-badge i { background: var(--plum-2); color: #fff; }
+
+/* floating cards that overlap the bottom of the panel */
+.hero-cards { position: relative; z-index: 3; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 68%; margin: -96px 0 0 32px; }
+.hc { display: grid; align-content: space-between; gap: 14px; padding: 20px; border-radius: 22px; background: #fff; color: var(--ink); text-decoration: none; box-shadow: 0 22px 40px -24px rgba(74,21,97,.55); border: 1px solid var(--lilac-2); min-height: 168px; transition: transform .2s ease, box-shadow .2s ease; }
+a.hc:hover { transform: translateY(-4px); box-shadow: 0 28px 44px -24px rgba(74,21,97,.65); }
+.hc b { font: 600 17px/1.3 var(--f-display); color: var(--plum); }
+.hc-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+.hc-arrow { flex: none; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--pink-soft); color: var(--magenta); }
+.hc-arrow .icon { width: 18px; height: 18px; }
+.hc-sub { font-size: 14px; color: var(--muted); }
+.hc-svc { background: linear-gradient(160deg, #fbe3f0 0%, #efe2f8 100%); justify-items: center; text-align: center; }
+.hc-pill { background: #fff; color: var(--plum); font: 600 13px/1 var(--f-display); padding: 8px 14px; border-radius: 999px; }
+.hc-icons { display: flex; gap: 8px; }
+.hc-icons span { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--magenta); border: 1.5px solid #f3c6dc; }
+.hc-icons .icon { width: 20px; height: 20px; }
+.hc-wa { grid-template-columns: 1fr 96px; align-items: stretch; padding: 12px 12px 12px 20px; }
+.hc-wa > div { display: grid; align-content: space-between; gap: 12px; padding-block: 8px; }
+.hc-wa .btn { justify-self: start; }
+.hc-wa img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+
+@media (max-width: 1100px) {
+  .hero-cards { width: 100%; margin: -64px 0 0; padding-inline: 20px; }
+  .hero-text { padding-bottom: 96px; }
+}
+@media (max-width: 900px) {
+  .hero-v2 .wrap { padding-block: 16px 0; }
+  .hero-panel { grid-template-columns: 1fr; padding: 36px 24px 0; border-radius: 26px; }
+  .hero-text { padding-bottom: 8px; }
+  .hero-doc { margin-top: 8px; }
+  .hero-doc img { width: min(100%, 440px); }
+  .hero-doc .ring { width: min(84%, 380px); bottom: 12%; }
+  .hero-v2 .name-badge { right: 4px; bottom: 90px; }
+  .hero-cards { grid-template-columns: 1fr; margin-top: 16px; padding-inline: 0; }
+  .hc { min-height: 0; }
+  .hc-wa { grid-template-columns: 1fr 88px; }
+  .hc-wa img { aspect-ratio: 1; height: auto; align-self: center; }
+}
+@media (max-width: 520px) {
+  .hero-panel { padding: 30px 18px 0; }
+  .hero-stats { gap: 12px 26px; }
+  .hero-stats dt { font-size: 24px; }
+  .hero-v2 .name-badge { right: auto; left: 0; bottom: 70px; padding: 10px 12px; }
+  .hero-v2 .name-badge b { font-size: 16px; }
+}
