@@ -471,3 +471,8 @@ a.hc:hover { transform: translateY(-4px); box-shadow: 0 28px 44px -24px rgba(74,
   .hero-v2 .name-badge { right: auto; left: 0; bottom: 70px; padding: 10px 12px; }
   .hero-v2 .name-badge b { font-size: 16px; }
 }
+
+/* ---------- Google review label ---------- */
+.review .review-src { display: inline-flex; align-items: center; gap: 6px; margin-top: -8px; font-size: 13px; color: var(--muted); }
+.review .review-src .icon { width: 14px; height: 14px; }
+.review-actions { flex-wrap: wrap; gap: 10px; }
